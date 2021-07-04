@@ -112,7 +112,7 @@ exports.resetpassword = async (req, res, next) => {
         res.status(201).json({
             success: true,
             data: "Password Reset Successfully",
-            token: user.getSignedJwtToken(),
+            token: user.getSignedToken(),
         });
     } catch (err) {
         next(err);
