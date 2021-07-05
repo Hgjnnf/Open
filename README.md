@@ -9,4 +9,3 @@
   cd open-backend
   npm install
 ```
-www.wizeprep.com
