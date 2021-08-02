@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/private', require('./routes/private'));
 
-app.use('/', require('./routes/message_routes.js'));
+app.use('/message', require('./routes/message_routes.js'));
 
 //Error Handler
 app.use(errorHandler);
