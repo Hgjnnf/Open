@@ -3,9 +3,9 @@ var Message = require('../models/message_model');
 // Display all available messages
 // Currently set up to just display all messages in the DB - need to use current user information to complete
 exports.message_list = function(req, res, next) {
-    Message.find({}, 'title', function(err, list_messages) {
+    Message.find({},  function(err, list_messages) {
         if (err) {return next(err);}
-        res.render('message_list', {title: 'Your Messages', message_list: list_messages});
+        res.json({message_list: list_messages});
     });
 };
 
@@ -13,18 +13,27 @@ exports.message_list = function(req, res, next) {
 exports.message_read = function(req, res, next) {
     Message.findById(req.params.id, function(err, message) {
         if (err) {return next(err);}
-        res.render('message_read', {title: message.title, content: message.content});
+        res.json({title: message.title, content: message.content});
     });
 };
 
 // Display message write form on GET
-exports.message_write_get = function(req, res) {
-    res.send('Mesage writing get not yet implemented');
+// Likely not going into the final product, just need an interface for now
+exports.message_write_get = function(req, res, next) {
+    res.render('message_write', { page: 'Write Message'});
 };
 
 // Handle message write on POST
-exports.message_write_post = function(req, res) {
-    res.send('Message writing post not yet implemented');
+// Validation skipped for now
+exports.message_write_post = function(req, res, next) {
+    var message = new Message({
+        title: req.body.title,
+        content: req.body.content
+    });
+    message.save(function(err) {
+        if (err) {return next(err);}
+        res.redirect(message.url);
+    });
 };
 
 // Display message reply form on GET

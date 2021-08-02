@@ -19,3 +19,5 @@ router.get('/:id', message_controller.message_read);
 
 // GET request for list of all messages
 router.get('/messages', message_controller.message_list);
+
+module.exports = router;

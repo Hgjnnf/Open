@@ -15,5 +15,5 @@ MessageSchema
 .get(function () {
   return '/' + this._id;
 });
-
+MessageSchema.set("toJSON", { getters: true });
 module.exports = mongoose.model('Message', MessageSchema);
