@@ -13,7 +13,7 @@ var MessageSchema = new Schema({
 MessageSchema
 .virtual('url')
 .get(function () {
-  return '/' + this._id;
+  return '/message/' + this._id;
 });
 MessageSchema.set("toJSON", { getters: true });
 module.exports = mongoose.model('Message', MessageSchema);
