@@ -2,6 +2,7 @@ require('dotenv').config({path: "./config.env"});
 const express = require('express');
 const connectDB = require('./config/db');
 const errorHandler = require('./middleware/error');
+const {protect} = require('./middleware/auth');
 
 // Connect database
 connectDB();
@@ -13,7 +14,7 @@ app.use(express.json());
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/private', require('./routes/private'));
 
-app.use('/messages', require('./routes/message_routes'));
+app.use('/messages', protect, require('./routes/message_routes'));
 
 //Error Handler
 app.use(errorHandler);
