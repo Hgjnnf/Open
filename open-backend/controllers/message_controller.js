@@ -19,12 +19,6 @@ exports.message_read = function(req, res, next) {
     });
 };
 
-// Display message write form on GET
-// Likely not going into the final product, just need an interface for now
-exports.message_write_get = function(req, res, next) {
-    res.render('message_write', { page: 'Write Message'});
-};
-
 // Handle message write on POST
 // Validation skipped for now
 exports.message_write_post = function(req, res, next) {
@@ -38,13 +32,6 @@ exports.message_write_post = function(req, res, next) {
         if (err) {return next(err);}
         res.redirect(message.url);
     });
-};
-
-// Display message reply form on GET
-// May need a parameter of message_id or sender_id, maybe store in req
-// Replying can only be done when sender id's are added to the message model
-exports.message_reply_get = function(req, res) {
-    res.send('Message reply get not yet implemented');
 };
 
 // Handle message reply on GET
