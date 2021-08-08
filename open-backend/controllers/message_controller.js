@@ -3,7 +3,9 @@ var Message = require('../models/message_model');
 // Display all available messages
 // Currently set up to just display all messages in the DB - need to use current user information to complete
 exports.message_list = function(req, res, next) {
-    Message.find({},  function(err, list_messages) {
+    Message.find({
+        available_at: {$lte: new Date()}
+    },  function(err, list_messages) {
         if (err) {return next(err);}
         res.json({message_list: list_messages});
     });
