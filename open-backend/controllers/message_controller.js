@@ -28,7 +28,9 @@ exports.message_write_get = function(req, res, next) {
 exports.message_write_post = function(req, res, next) {
     var message = new Message({
         title: req.body.title,
-        content: req.body.content
+        content: req.body.content,
+        available_at: getAvailableDate(),
+        sender_id: req.user._id
     });
     message.save(function(err) {
         if (err) {return next(err);}
@@ -48,3 +50,9 @@ exports.message_reply_get = function(req, res) {
 exports.message_reply_post = function(req, res) {
     res.send('Message reply post not yet implemented');
 };
+
+function getAvailableDate() {
+    const date = new Date();
+    date.setDate(date.getDate() + 1);
+    return date;
+}
