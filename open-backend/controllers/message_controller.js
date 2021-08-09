@@ -55,7 +55,7 @@ exports.message_reply_post = async function(req, res, next) {
 // Get a date object set 1 day after the current date
 function getAvailableDate() {
     const date = new Date();
-    date.setDate(date.getDate() + 0);
+    date.setDate(date.getDate() + 1);
     return date;
 };
 
