@@ -1,7 +1,7 @@
 var Message = require('../models/message_model');
 var User = require('../models/User');
 
-// Display all available messages
+// Display all messages for the user
 exports.message_list = function(req, res, next) {
     Message.find({
         available_at: {$lte: new Date()},
@@ -36,18 +36,30 @@ exports.message_write_post = async function(req, res, next) {
     });
 };
 
-// Handle message reply on GET
-// Also needs extra parameter, see above function
-exports.message_reply_post = function(req, res) {
-    res.send('Message reply post not yet implemented');
+// Handle message reply on POST
+exports.message_reply_post = async function(req, res, next) {
+    const base_message = await Message.findById(req.params.id);
+    var message = new Message({
+        title: 'Re: ' + base_message.title,
+        content: req.body.content,
+        available_at: getAvailableDate(),
+        sender_id: req.user._id,
+        recipients: [base_message.sender_id]
+    });
+    message.save(function(err) {
+        if (err) {return next(err);}
+        res.redirect(message.url);
+    });
 };
 
+// Get a date object set 1 day after the current date
 function getAvailableDate() {
     const date = new Date();
-    date.setDate(date.getDate() + 1);
+    date.setDate(date.getDate() + 0);
     return date;
 };
 
+// Generate up to 3 random user ID's from the database, excluding the current user
 async function getRecipients(ownId) {
     const recipients = await User.aggregate([{$sample: {size: 3}}]);
     ids = [];
