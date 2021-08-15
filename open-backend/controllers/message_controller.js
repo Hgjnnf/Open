@@ -28,7 +28,7 @@ exports.message_write_post = async function(req, res, next) {
         content: req.body.content,
         available_at: getAvailableDate(),
         sender_id: req.user._id,
-        recipients: await getRecipients(req.user.id)
+        recipients: await getRecipients(req.user._id)
     });
     message.save(function(err) {
         if (err) {return next(err);}
