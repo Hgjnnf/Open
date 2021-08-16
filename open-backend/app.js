@@ -10,8 +10,9 @@ const app = express();
 
 app.use(express.json());
 
+//Routing
 app.use('/api/auth', require('./routes/auth'));
-app.use('/api/private', require('./routes/private'));
+app.use('/profile', require('./routes/profile'));
 
 app.use('/messages', require('./routes/message_routes'));
 
