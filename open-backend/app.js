@@ -13,6 +13,8 @@ app.use(express.json());
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/private', require('./routes/private'));
 
+app.use('/messages', require('./routes/message_routes'));
+
 //Error Handler
 app.use(errorHandler);
 
