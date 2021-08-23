@@ -1,0 +1,15 @@
+.Username {
+    display: flex;
+    justify-content: center;
+}
+
+#username {
+    margin: 0;
+    margin-right: 5px;
+    color: white;
+}
+
+#edit-username {
+    text-decoration: none;
+    color: white;
+}
