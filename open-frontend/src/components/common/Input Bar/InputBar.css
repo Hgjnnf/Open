@@ -1,10 +1,10 @@
 .InputBar {
     display: flex;
-    align-items: flex-start;
+    justify-items: flex-start;
     flex-direction: column;
     color: white;
     width: 45.555%;
-    margin: auto;
+    margin: 5px;
 }
 
 #title {
@@ -15,7 +15,7 @@
 
 .input-box {
     width: 100%;
-    height: 7.03125%;
+    height: 100%;
     border: 1px solid #F5F5F5;
     border-radius: 25px;
     display: flex;
