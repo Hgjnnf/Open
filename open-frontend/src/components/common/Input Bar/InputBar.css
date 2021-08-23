@@ -1,0 +1,30 @@
+.InputBar {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    color: white;
+    width: 45.555%;
+    margin: auto;
+}
+
+#title {
+    text-align: left;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.input-box {
+    width: 100%;
+    height: 7.03125%;
+    border: 1px solid #F5F5F5;
+    border-radius: 25px;
+    display: flex;
+    align-items: flex-start;
+}
+
+#content {
+    font-size: 0.75rem;
+    padding: 3px;
+    padding-left: 5px;
+    margin: 0;
+}
