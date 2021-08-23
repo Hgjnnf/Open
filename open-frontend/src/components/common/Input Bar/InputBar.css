@@ -19,7 +19,8 @@
     border: 1px solid #F5F5F5;
     border-radius: 25px;
     display: flex;
-    align-items: flex-start;
+    justify-content: space-between;
+    padding: 4px;
 }
 
 #content {
@@ -27,4 +28,9 @@
     padding: 3px;
     padding-left: 5px;
     margin: 0;
+}
+
+#icon {
+    text-decoration: none;
+    color: #F5F5F5;
 }

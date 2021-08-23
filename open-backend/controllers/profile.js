@@ -3,14 +3,21 @@ const ErrorResponse = require('../utils/errorResponse');
 const jwt = require('jsonwebtoken');
 
 exports.displayUser = async (req, res, next) => {
-    const user = req.user;
+    //gets token from the auth.js middleware
+    let token = req.token;
 
     try {
+        //decodes the token
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+        //finds the user by the decoded id + select password to get the password
+        const user = await User.findById(decoded.id)
+
         const {username, email} = user;
 
         res.status(200).json({
             username: username,
-            email: email,
+            email: email
         })
 
     } catch(err) {

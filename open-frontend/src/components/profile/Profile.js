@@ -1,7 +1,7 @@
 import React from 'react';
 import './Profile.css';
 import { InputBar } from '../common/Input Bar/InputBar';
-import { Username } from './Username';
+import { FaEdit } from 'react-icons/fa';
 import returnArrow from '../../util/media/returnArrow.png';
 
 export class Profile extends React.Component {
@@ -10,9 +10,10 @@ export class Profile extends React.Component {
             <div className="Profile">
                 <a href="#" id="return-link"><img src={returnArrow} alt="Return Arrow" id="return-arrow"/></a>
                 <div className="Profile-Main">
-                    <Username username="Hgjnnf"/>
+                    <h2 id="profile-title">PROFILE</h2>
+                    <InputBar title="USERNAME" content="Hgjnnf" icon={<FaEdit />} />
                     <InputBar title="EMAIL" content="Email@gmail.com" />
-                    <InputBar title="PASSWORD" content="xxxxxx" />
+                    <p id="change-password">Change Password</p>
                 </div>
             </div>
         )
