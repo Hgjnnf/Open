@@ -9,15 +9,18 @@ export class Profile extends React.Component {
     constructor(props) {
         super(props);
 
+        //Username & Email States
         this.state = {
-            username: '',
-            email: '',
+            username: 'Loading...',
+            email: 'Loading...'
         }
     };
 
     fetchProfileData() {
+        //Tentative; for testing (will be replaced by the login
         let authToken = this.props.token;
 
+        //Configuration for calling the GET request
         const config = {
             headers: {
                 "Content-Type": "application/json",
@@ -25,11 +28,13 @@ export class Profile extends React.Component {
             }
         }
 
+        //GET request to the /profile url
         axios.get('/profile', config).then(res => {
+            //Set 1 second delay before changing state
             setTimeout(() => {
                     this.setState({
                         username: res.data.username,
-                        email: res.data.email,
+                        email: res.data.email
                     });
                 }, 1000)
             }
@@ -37,7 +42,7 @@ export class Profile extends React.Component {
             setTimeout(() => {
                     this.setState({
                         username: err.message,
-                        email: err.message,
+                        email: err.message
                     });
                 }, 1000)
             }
@@ -61,10 +66,12 @@ export class Profile extends React.Component {
         )
     };
 
+    //Only called once the component is initially rendered (mounted)
     componentDidMount() {
         this.fetchProfileData()
     };
 
+    //Checks for changes in username and email then updates them
     componentDidUpdate(prevState) {
         let didUsernameChange = this.state.username !== prevState.username;
         let didEmailChange = this.state.email !== prevState.email;
