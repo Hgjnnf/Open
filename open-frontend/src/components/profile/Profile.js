@@ -12,7 +12,6 @@ export class Profile extends React.Component {
         this.state = {
             username: '',
             email: '',
-            isLoaded: false
         }
     };
 
@@ -31,7 +30,6 @@ export class Profile extends React.Component {
                     this.setState({
                         username: res.data.username,
                         email: res.data.email,
-                        isLoaded: true
                     });
                 }, 1000)
             }
@@ -40,7 +38,6 @@ export class Profile extends React.Component {
                     this.setState({
                         username: err.message,
                         email: err.message,
-                        isLoaded: false
                     });
                 }, 1000)
             }
@@ -50,15 +47,14 @@ export class Profile extends React.Component {
     render() {
         let username = this.state.username;
         let email = this.state.email;
-        let isLoaded = this.state.isLoaded;
 
         return (
             <div className="Profile">
                 <a href="#" id="return-link"><img src={returnArrow} alt="Return Arrow" id="return-arrow"/></a>
                 <div className="Profile-Main">
                     <h2 id="profile-title">PROFILE</h2>
-                    <InputBar title="USERNAME" content={!isLoaded ? 'Loading...' : username} icon={<FaEdit />} />
-                    <InputBar title="EMAIL" content={!isLoaded ? 'Loading...' : email} />
+                    <InputBar title="USERNAME" content={username} icon={<FaEdit />} />
+                    <InputBar title="EMAIL" content={email} />
                     <p id="change-password">Change Password</p>
                 </div>
             </div>
