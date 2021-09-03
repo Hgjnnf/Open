@@ -1,0 +1,49 @@
+.view-header {
+  color: white;
+  font-size: 45px;
+  text-align: center;
+  margin-top: 3%;
+}
+
+.profile-pic {
+  color: white;
+  position: absolute;
+  right: 3%;
+  top: 5%;
+  height: 13%;
+}
+
+.view-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1%;
+  margin-right: 18%;
+  margin-left: 13%;
+}
+
+.arrow-left {
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  border-right: 40px solid white;
+  opacity: 10%;
+  position: absolute;
+  left: 12%;
+  top: 50%;
+}
+
+.arrow-right {
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  border-left: 40px solid white;
+  opacity: 10%;
+  position: absolute;
+  right: 12%;
+  top: 50%;
+}
