@@ -4,6 +4,12 @@ import { InputBar } from '../common/Input Bar/InputBar';
 import { FaEdit } from 'react-icons/fa';
 import returnArrow from '../../util/media/returnArrow.png';
 import axios from 'axios';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 export class Profile extends React.Component {
     constructor(props) {

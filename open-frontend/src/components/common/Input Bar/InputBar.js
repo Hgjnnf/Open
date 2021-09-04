@@ -1,5 +1,6 @@
 import React from 'react';
 import './InputBar.css';
+import { Link } from "react-router-dom";
 
 export class InputBar extends React.Component {
     render() {
