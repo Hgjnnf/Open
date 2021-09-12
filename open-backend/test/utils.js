@@ -25,7 +25,8 @@ exports.makeMessage = function(title, content, to) {
         recipients: [to],
         available_at: new Date()
     };
-    this.createMessage(message);
+    const id = this.createMessage(message);
+    return id;
 };
 
 exports.makeFutureMessage = function(title, content, to) {
@@ -37,7 +38,8 @@ exports.makeFutureMessage = function(title, content, to) {
         recipients: [to],
         available_at: date
     };
-    this.createMessage(message);
+    const id = this.createMessage(message);
+    return id;
 };
 
 exports.makeSilentMessage = function(title, content) {
@@ -47,5 +49,6 @@ exports.makeSilentMessage = function(title, content) {
         recipients: [],
         available_at: new Date()
     };
-    this.createMessage(message);
+    const id = this.createMessage(message);
+    return id;
 }

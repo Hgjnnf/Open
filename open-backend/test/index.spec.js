@@ -44,3 +44,25 @@ describe("GET /messages", () => {
     });
   });
 });
+
+describe("GET /messages/:id", () => {
+  it("Should receive the test message", done => {
+    const userId = utils.createUser(conf.mainUserReg);
+    const messageId = utils.makeMessage(conf.messageTitle, conf.messageContent, userId);
+    request(app)
+      .post('/api/auth/login')
+      .send(conf.mainUser)
+      .end((err, res) => {
+        const token = res.body.token;
+        request(app)
+          .get('/messages/' + messageId)
+          .set('Authorization', 'Bearer ' + token)
+          .expect(200)
+          .expect({title: conf.messageTitle, content: conf.messageContent})
+          .end((err, res) => {
+            if (err) return done(err);
+            done();
+          });
+      });
+  });
+});
