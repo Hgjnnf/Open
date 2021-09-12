@@ -32,7 +32,7 @@ exports.message_write_post = async function(req, res, next) {
     });
     message.save(function(err) {
         if (err) {return next(err);}
-        res.redirect(message.url);
+        res.json({title: message.title, content: message.content});
     });
 };
 
@@ -48,7 +48,7 @@ exports.message_reply_post = async function(req, res, next) {
     });
     message.save(function(err) {
         if (err) {return next(err);}
-        res.redirect(message.url);
+        res.json({title: message.title, content: message.content});
     });
 };
 
