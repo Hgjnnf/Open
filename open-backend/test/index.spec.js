@@ -38,6 +38,7 @@ describe("GET /messages", () => {
               messages[0].content != conf.messageContent) throw new Error('Incorrect message');
           })
           .end((err, res) => {
+            utils.clearDB();
             if (err) return done(err);
             done();
       });
@@ -60,6 +61,7 @@ describe("GET /messages/:id", () => {
           .expect(200)
           .expect({title: conf.messageTitle, content: conf.messageContent})
           .end((err, res) => {
+            utils.clearDB();
             if (err) return done(err);
             done();
           });
