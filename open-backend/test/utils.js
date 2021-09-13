@@ -18,11 +18,12 @@ exports.clearDB = () => {
     User.deleteMany({});
 }
 
-exports.makeMessage = function(title, content, to) {
+exports.makeMessage = function(title, content, to, from) {
     const message = {
         title,
         content, 
         recipients: [to],
+        sender_id: from,
         available_at: new Date()
     };
     const id = this.createMessage(message);
@@ -51,4 +52,4 @@ exports.makeSilentMessage = function(title, content) {
     };
     const id = this.createMessage(message);
     return id;
-}
+};

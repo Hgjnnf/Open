@@ -30,9 +30,9 @@ exports.message_write_post = async function(req, res, next) {
         sender_id: req.user._id,
         recipients: await getRecipients(req.user.id)
     });
-    message.save(function(err) {
+    message.save(function(err, sent) {
         if (err) {return next(err);}
-        res.json({title: message.title, content: message.content});
+        res.json(sent);
     });
 };
 
@@ -46,9 +46,9 @@ exports.message_reply_post = async function(req, res, next) {
         sender_id: req.user._id,
         recipients: [base_message.sender_id]
     });
-    message.save(function(err) {
+    message.save(function(err, sent) {
         if (err) {return next(err);}
-        res.json({title: message.title, content: message.content});
+        res.json(sent);
     });
 };
 

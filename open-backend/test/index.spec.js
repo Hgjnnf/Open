@@ -18,7 +18,7 @@ app.use('/messages', require('../routes/message_routes'));
 describe("GET /messages", () => {
   it("Should receive 1 message", done => {
     const id = utils.createUser(conf.mainUserReg);
-    utils.makeMessage(conf.messageTitle, conf.messageContent, id);
+    utils.makeMessage(conf.messageTitle, conf.messageContent, id, null);
     utils.makeFutureMessage(conf.messageTitle, conf.unavailableContent, id);
     utils.makeSilentMessage(conf.messageTitle, conf.unavailableContent);
     request(app)
@@ -49,7 +49,7 @@ describe("GET /messages", () => {
 describe("GET /messages/:id", () => {
   it("Should receive the test message", done => {
     const userId = utils.createUser(conf.mainUserReg);
-    const messageId = utils.makeMessage(conf.messageTitle, conf.messageContent, userId);
+    const messageId = utils.makeMessage(conf.messageTitle, conf.messageContent, userId, null);
     request(app)
       .post('/api/auth/login')
       .send(conf.mainUser)
@@ -60,6 +60,71 @@ describe("GET /messages/:id", () => {
           .set('Authorization', 'Bearer ' + token)
           .expect(200)
           .expect({title: conf.messageTitle, content: conf.messageContent})
+          .end((err, res) => {
+            utils.clearDB();
+            if (err) return done(err);
+            done();
+          });
+      });
+  });
+});
+
+describe("POST /messages/write", () => {
+  it("Should write the test message", done => {
+    const mainId = utils.createUser(conf.mainUserReg);
+    const id1 = utils.createUser(conf.testUser1);
+    const id2 = utils.createUser(conf.testUser2);
+    const id3 = utils.createUser(conf.testUser3);
+    request(app)
+      .post('/api/auth/login')
+      .send(conf.mainUser)
+      .end((err, res) => {
+        const token = res.body.token;
+        request(app)
+          .post('/messages/write')
+          .set('Authorization', 'Bearer ' + token)
+          .send({'title': conf.messageTitle, 'content': conf.writtenContent})
+          .expect(200)
+          .expect(function(res) {
+            message = res.body;
+            if (message.recipients.length == 0) throw new Error('not enough recipients');
+            if (message.recipients.includes(mainId)) throw new Error('send to yourself');
+            if (message.available_at <= new Date()) throw new Error('sent too early');
+            if (message.title != conf.messageTitle 
+              || message.content != conf.writtenContent) throw new Error('wrong message');
+          })
+          .end((err, res) => {
+            utils.clearDB();
+            if (err) return done(err);
+            done();
+          });
+      });
+  });
+});
+
+describe("POST /messages/:id/reply", () => {
+  it("Should reply to the test message", done => {
+    const mainId = utils.createUser(conf.mainUserReg);
+    const id1 = utils.createUser(conf.testUser1);
+    const messageId = utils.makeMessage(conf.messageTitle, conf.messageContent, null, id1);
+    request(app)
+      .post('/api/auth/login')
+      .send(conf.mainUser)
+      .end((err, res) => {
+        const token = res.body.token;
+        request(app)
+          .post(`/messages/${messageId}/reply`)
+          .set('Authorization', 'Bearer ' + token)
+          .send({"content": conf.writtenContent})
+          .expect(200)
+          .expect(function(res) {
+            const message = res.body;
+            if (message.recipients.length != 1) throw new Error('wrong amount of recipients');
+            if (message.recipients[0] != id1) throw new Error('wrong recipient');
+            if (message.available_at <= new Date()) throw new Error('sent too early');
+            if (message.title != 'Re: ' + conf.messageTitle 
+            || message.content != conf.writtenContent) throw new Error('wrong message');
+          })
           .end((err, res) => {
             utils.clearDB();
             if (err) return done(err);
