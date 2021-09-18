@@ -3,14 +3,49 @@ import './UpdateUsername.css';
 import { InputBar } from '../common/Input Bar/InputBar';
 import returnArrow from '../../util/media/returnArrow.png';
 import axios from 'axios';
+import HomeButton from '../common/Home Button/HomeButton';
 
-export class UpdateUsername extends React.Component {
+class UpdateUsername extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
             username: ''
         }
+
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+    
+    handleChange(e) {
+        this.setState({
+            username: e.target.value
+        })
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        let authToken = this.props.token;
+        const username = this.state.username;
+
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${authToken}`
+            }
+        }
+
+        axios.put('/profile/changeusername', { username }, config).then(
+            res => {
+                alert(`${res.data.data}. Username: ${username}`);
+            }
+        ).catch(err => {
+            if(err.message === 'Request failed with status code 403') {
+                alert("Same username as before. No changes made.")
+            } else {
+                alert(err.message)
+            }
+        })
     }
 
     render() {
@@ -18,12 +53,15 @@ export class UpdateUsername extends React.Component {
 
         return (
             <div className="UpdateUsername">
-                <a href="#" id="return-link"><img src={returnArrow} alt="Return Arrow" id="return-arrow"/></a>
-                <div className="Username-Main">
+                <a href="/profile" id="return-link"><img src={returnArrow} alt="Return Arrow" id="return-arrow"/></a>
+                <form className="Username-Main" onSubmit={this.handleSubmit}>
                     <h2 id="username-title">Update Username</h2>
-                    <InputBar title="USERNAME" content={username}/>
-                </div>
+                    <InputBar title="USERNAME" inputType="text" value={username} isStatic={false} onchange={this.handleChange} />
+                    <button type="submit"><HomeButton buttonText="Update Username" /></button>
+                </form>
             </div>
         )
     }
 }
+
+export default UpdateUsername;

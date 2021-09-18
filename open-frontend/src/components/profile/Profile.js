@@ -4,12 +4,6 @@ import { InputBar } from '../common/Input Bar/InputBar';
 import { FaEdit } from 'react-icons/fa';
 import returnArrow from '../../util/media/returnArrow.png';
 import axios from 'axios';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
 
 export class Profile extends React.Component {
     constructor(props) {
@@ -61,12 +55,12 @@ export class Profile extends React.Component {
 
         return (
             <div className="Profile">
-                <a href="#" id="return-link"><img src={returnArrow} alt="Return Arrow" id="return-arrow"/></a>
+                <a href="/" id="return-link"><img src={returnArrow} alt="Return Arrow" id="return-arrow"/></a>
                 <div className="Profile-Main">
                     <h2 id="profile-title">PROFILE</h2>
-                    <InputBar title="USERNAME" content={username} icon={<FaEdit />} />
-                    <InputBar title="EMAIL" content={email} />
-                    <p id="change-password">Change Password</p>
+                    <InputBar title="USERNAME" content={username} icon={<FaEdit />} isStatic={true} link="/changeusername"/>
+                    <InputBar title="EMAIL" content={email} isStatic={true} />
+                    <a id="change-password" href="/changepassword">Change Password</a>
                 </div>
             </div>
         )
