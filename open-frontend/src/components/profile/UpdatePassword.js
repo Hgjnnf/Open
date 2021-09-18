@@ -56,7 +56,7 @@ class UpdatePassword extends React.Component {
                 <a href="/profile" id="return-link"><img src={returnArrow} alt="Return Arrow" id="return-arrow"/></a>
                 <form className="password-Main" onSubmit={this.handleSubmit}>
                     <h2 id="password-title">Update password</h2>
-                    <InputBar title="password" inputType="text" value={password} isStatic={false} onchange={this.handleChange} />
+                    <InputBar title="Password" inputType="text" value={password} isStatic={false} onchange={this.handleChange} />
                     <button type="submit"><HomeButton buttonText="Update Password" /></button>
                 </form>
             </div>
