@@ -3,8 +3,8 @@ import "./App.css";
 //components
 import MailCard from "./components/common/mails/MailCard.js";
 import MailViewPage from "./components/mailview/MailViewPage.js";
-import Signup from "./components/common/home/HomeSignup";
-import Login from "./components/common/home/HomeLogin";
+import Signup from "./components/common/home/HomeLogin";
+import Login from "./components/common/home/HomeSignup";
 
 //routing
 import {

@@ -7,11 +7,8 @@
   body {
     height: 100vh;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-family: sans-serif;
-    background-color: #7fabd7;
+    background-color: #33539F;
   }
   
   .wrapper {

@@ -54,7 +54,7 @@ const MailViewPage = (props) => {
           <MailPreview
             to={slideContent[0]}
             from={slideContent[1]}
-            overview={slideContent[2]}
+            content={slideContent[2]}
           ></MailPreview>
         </div>
         <div onClick={() => slideScroll(-1)} className="arrow-left"></div>

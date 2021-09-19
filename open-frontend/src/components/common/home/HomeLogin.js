@@ -51,20 +51,31 @@ const Home = (props) => {
             className="log"
             buttonText="LOG IN"
             link="login"
-            colour="#7FABD7"
+            colour="#FFFFFF"
           ></HomeButton>
           <HomeButton
             className="sign"
             buttonText="SIGN UP"
             link="signup"
-            colour="#FFFFFF"
+            colour="#7FABD7"
           ></HomeButton>
         </div>
-        <HomeInput></HomeInput>
-        <HomeCheckbox></HomeCheckbox>
-        <a href="forgot-password" className="forgot-password">
-          Forgot Password
-        </a>
+        <div className="input-container">
+          <HomeInput
+            type="text"
+            name="email"
+            labelFor="email"
+            question="EMAIL"
+            onClick={null}
+          />
+          <HomeInput
+            type="text"
+            name="password"
+            labelFor="password"
+            question="PASSWORD"
+            onClick={null}
+          />
+        </div>
         <div className="submit-button">
           <HomeButton
             className="submit-button"
@@ -73,12 +84,6 @@ const Home = (props) => {
             colour="#FFFFFF"
           ></HomeButton>
         </div>
-        <a className="privacy-policy" href="privacy-policy">
-          Privacy Policy
-        </a>
-        <a className="terms-conditions" href="terms-conditions">
-          Terms &amp; Conditions
-        </a>
       </div>
     </div>
   );
