@@ -2,7 +2,7 @@ import React from "react";
 import "./MailViewButton.css";
 
 const MailViewButton = (props) => {
-    const { children, link } = props;
+    const { children, link, onClick } = props;
 
     if (link=="") {
         return (
@@ -10,7 +10,7 @@ const MailViewButton = (props) => {
         );
     } else {
         return (
-            <a className="view-button" href={link}>{children}</a>
+            <a className="view-button" href={link} onClick={onClick}>{children}</a>
         );
     }
 };

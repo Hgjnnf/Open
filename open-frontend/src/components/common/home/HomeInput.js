@@ -2,7 +2,7 @@ import React from "react";
 import "./HomeInput.css";
 
 const HomeInput = (props) => {
-  const { type, name, onClick, labelFor, question } = props;
+  const { type, name, onChange, labelFor, question } = props;
 
   return (
     /*
@@ -18,14 +18,14 @@ const HomeInput = (props) => {
     </div>
     */
     <div>
-      <label for={labelFor}>
+      <label htmlFor={labelFor}>
         <p className="title">{question}</p>
       </label>
       <input
         type={type}
         className="input-box"
         name={name}
-        onClick={onClick}
+        onChange={onChange}
         required
       />
     </div>

@@ -7,7 +7,7 @@ import ProfilePic from "../../util/profile.png"
 
 let slideIndex = 0;
 
-const MailViewPage = (props) => {
+const MailViewPage = (props, {history}) => {
   const {} = props;
 
   const toArray = ["Darling", "You", "Bro"];
@@ -39,6 +39,12 @@ const MailViewPage = (props) => {
     ]);
   }
 
+  const handleLogOut = () => {
+    localStorage.removeItem("authToken");
+
+    history.push("/login");
+  }
+
   return (
     <div>
       <p className="view-header">Header</p>
@@ -47,6 +53,7 @@ const MailViewPage = (props) => {
         <MailViewButton link="">0 New Letters Available</MailViewButton>
         <MailViewButton link="replies">Letter Replies</MailViewButton>
         <MailViewButton link="tutorial">Rules of Open</MailViewButton>
+        <MailViewButton link="login" onClick={handleLogOut}>Log Out</MailViewButton>
       </div>
 
       <div>
