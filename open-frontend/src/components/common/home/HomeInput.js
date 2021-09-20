@@ -2,7 +2,7 @@ import React from "react";
 import "./HomeInput.css";
 
 const HomeInput = (props) => {
-  const { type, name, onChange, labelFor, question } = props;
+  const { type, name, onChange, labelFor, question, value } = props;
 
   return (
     /*
@@ -26,6 +26,7 @@ const HomeInput = (props) => {
         className="input-box"
         name={name}
         onChange={onChange}
+        value={value}
         required
       />
     </div>

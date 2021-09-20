@@ -55,14 +55,12 @@ const Home = ({history}) => {
     const value = event.target.value;
 
     setEmail(value);
-    console.log(email);
   }
 
   const handlePassword = (event) => {
     const value = event.target.value;
 
     setPassword(value);
-    console.log(password);
   }
 
   const handleSubmit = async (event) => {
@@ -83,6 +81,12 @@ const Home = ({history}) => {
       alert(err.message);
     });
    
+  }
+
+  const buttonStyle = {
+    border: 'none',
+    outline:'none',
+    "background-color": '#33539f',
   }
 
   return (
@@ -113,7 +117,7 @@ const Home = ({history}) => {
               onChange={handleEmail}
             />
             <HomeInput
-              type="text"
+              type="password"
               name="password"
               labelFor="password"
               question="PASSWORD"
@@ -121,7 +125,7 @@ const Home = ({history}) => {
             />
           </div>
           <div className="submit-button">
-            <button type="submit">
+            <button type="submit" style={buttonStyle}>
               <HomeButton
                 className="submit-button"
                 buttonText="SUBMIT"
