@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 
 function App() {
-  let authToken = '';
+  let authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDhlYmYwOWU0ZTQwMDAxNmEwMzE2MiIsImlhdCI6MTYzMjI3MjUwMCwiZXhwIjoxNjMyMjc2MTAwfQ.p8HWHEN_Wh0-4aQEhu_K8UbHJG0C9Qlvj_24NSsCp88';
   
   return (
     <Router>
