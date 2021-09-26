@@ -22,7 +22,6 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <PrivateRoute exact path="/" component={MailViewPage} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
           {/* to be added later
@@ -33,15 +32,10 @@ function App() {
 
           </Route>
           */}
-          <Route exact path="/profile">
-            < Profile token={authToken} />
-          </Route>
-          <Route exact path = "/changepassword">
-            <UpdatePassword token={authToken} />
-          </Route>
-          <Route exact path = "/changeusername">
-              <UpdateUsername token={authToken} />
-          </Route>
+          <PrivateRoute exact path="/" component={MailViewPage} />
+          <PrivateRoute exact path="/profile" component={Profile} />
+          <PrivateRoute exact path = "/changepassword" component={UpdatePassword} />
+          <PrivateRoute exact path = "/changeusername" component={UpdateUsername} />
         </Switch>
       </div>
     </Router>

@@ -1,9 +1,9 @@
 import React from 'react';
 import './UpdateUsername.css';
-import { InputBar } from '../common/Input Bar/InputBar';
+import HomeInput from '../common/home/HomeInput';
 import returnArrow from '../../util/media/returnArrow.png';
 import axios from 'axios';
-import HomeButton from '../common/Home Button/HomeButton';
+import HomeButton from '../common/home/HomeButton';
 
 class UpdateUsername extends React.Component {
     constructor(props) {
@@ -25,13 +25,12 @@ class UpdateUsername extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        let authToken = this.props.token;
         const username = this.state.username;
 
         const config = {
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${authToken}`
+                Authorization: `Bearer ${localStorage.getItem("authToken")}`
             }
         }
 
@@ -56,7 +55,7 @@ class UpdateUsername extends React.Component {
                 <a href="/profile" id="return-link"><img src={returnArrow} alt="Return Arrow" id="return-arrow"/></a>
                 <form className="Username-Main" onSubmit={this.handleSubmit}>
                     <h2 id="username-title">Update Username</h2>
-                    <InputBar title="USERNAME" inputType="text" value={username} isStatic={false} onchange={this.handleChange} />
+                    <HomeInput question="USERNAME" inputType="text" value={username} isStatic={false} onchange={this.handleChange} />
                     <button type="submit"><HomeButton buttonText="Update Username" /></button>
                 </form>
             </div>
