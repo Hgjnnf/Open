@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
 import HomeButton from "./HomeButton.js";
-import HomeCheckbox from "./HomeCheckbox.js";
 import HomeInput from "./HomeInput.js";
 import axios from 'axios';
 

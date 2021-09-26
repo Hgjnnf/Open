@@ -1,7 +1,6 @@
 import "./App.css";
 
-//components
-import MailCard from "./components/common/mails/MailCard.js";
+//components"
 import MailViewPage from "./components/mailview/MailViewPage.js";
 import Login from "./components/common/home/HomeLogin";
 import Signup from "./components/common/home/HomeSignup";

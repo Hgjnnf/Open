@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./MailViewPage.css";
 import MailPreview from "./MailPreview.js";
 import MailViewButton from "./MailViewButton.js";
@@ -7,8 +7,7 @@ import ProfilePic from "../../util/profile.png"
 
 let slideIndex = 0;
 
-const MailViewPage = (props, {history}) => {
-  const {} = props;
+const MailViewPage = ({history}) => {
 
   const toArray = ["Darling", "You", "Bro"];
   const fromArray = ["Master Baller", "I like men", "Justice never dies"];
