@@ -48,7 +48,7 @@ const MailViewPage = (props, {history}) => {
   return (
     <div>
       <p className="view-header">Header</p>
-      <img alt="profile" href="profile" src={ProfilePic} className="profile-pic"/>
+      <a href="/profile"><img alt="profile" src={ProfilePic} className="profile-pic"/></a>
       <div className="view-buttons">
         <MailViewButton link="">0 New Letters Available</MailViewButton>
         <MailViewButton link="replies">Letter Replies</MailViewButton>

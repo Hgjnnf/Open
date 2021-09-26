@@ -46,7 +46,7 @@ const Home = ({history}) => {
   const buttonStyle = {
     border: 'none',
     outline:'none',
-    "background-color": '#33539f',
+    "backgroundColor": '#33539f',
   }
 
   return (
@@ -75,6 +75,7 @@ const Home = ({history}) => {
               labelFor="username"
               question="USERNAME"
               onChange={(e) => setUsername(e.target.value)}
+              isStatic={false}
             />
             <HomeInput
               type="text"
@@ -82,6 +83,7 @@ const Home = ({history}) => {
               labelFor="email"
               question="EMAIL"
               onChange={(e) => setEmail(e.target.value)}
+              isStatic={false}
             />
             <HomeInput
               type="password"
@@ -90,6 +92,7 @@ const Home = ({history}) => {
               question="PASSWORD"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              isStatic={false}
             />
             <HomeInput
               type="password"
@@ -98,6 +101,7 @@ const Home = ({history}) => {
               question="CONFIRM PASSWORD"
               value={confirmpassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              isStatic={false}
             />
           </div>
           <HomeCheckbox></HomeCheckbox>

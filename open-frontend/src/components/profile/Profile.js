@@ -1,6 +1,6 @@
 import React from 'react';
 import './Profile.css';
-import { InputBar } from '../common/Input Bar/InputBar';
+import HomeInput from '../common/home/HomeInput';
 import { FaEdit } from 'react-icons/fa';
 import returnArrow from '../../util/media/returnArrow.png';
 import axios from 'axios';
@@ -17,14 +17,11 @@ export class Profile extends React.Component {
     };
 
     fetchProfileData() {
-        //Tentative; for testing (will be replaced by the login
-        let authToken = this.props.token;
-
         //Configuration for calling the GET request
         const config = {
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${authToken}`
+                Authorization: `Bearer ${localStorage.getItem("authToken")}`
             }
         }
 
@@ -58,8 +55,8 @@ export class Profile extends React.Component {
                 <a href="/" id="return-link"><img src={returnArrow} alt="Return Arrow" id="return-arrow"/></a>
                 <div className="Profile-Main">
                     <h2 id="profile-title">PROFILE</h2>
-                    <InputBar title="USERNAME" content={username} icon={<FaEdit />} isStatic={true} link="/changeusername"/>
-                    <InputBar title="EMAIL" content={email} isStatic={true} />
+                    <HomeInput question="USERNAME" value={username} icon={<FaEdit />} isStatic={true} link="/changeusername"/>
+                    <HomeInput question="EMAIL" value={email} isStatic={true} />
                     <a id="change-password" href="/changepassword">Change Password</a>
                 </div>
             </div>
@@ -69,6 +66,7 @@ export class Profile extends React.Component {
     //Only called once the component is initially rendered (mounted)
     componentDidMount() {
         this.fetchProfileData()
+        console.log(localStorage.getItem("authToken"))
     };
 
     //Checks for changes in username and email then updates them

@@ -1,7 +1,7 @@
 import "./App.css";
 
 //components
-import MailCard from "./components/common/mails/MailCard";
+import MailCard from "./components/common/mails/MailCard.js";
 import MailViewPage from "./components/mailview/MailViewPage.js";
 import Login from "./components/common/home/HomeLogin";
 import Signup from "./components/common/home/HomeSignup";
@@ -22,7 +22,6 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <PrivateRoute exact path="/" component={MailViewPage} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
           {/* to be added later
@@ -33,15 +32,10 @@ function App() {
 
           </Route>
           */}
-          <Route exact path="/profile">
-            < Profile/>
-          </Route>
-          <Route exact path = "/changepassword">
-            <UpdatePassword/>
-          </Route>
-          <Route exact path = "/changeusername">
-              <UpdateUsername/>
-          </Route>
+          <PrivateRoute exact path="/" component={MailViewPage} />
+          <PrivateRoute exact path="/profile" component={Profile} />
+          <PrivateRoute exact path = "/changepassword" component={UpdatePassword} />
+          <PrivateRoute exact path = "/changeusername" component={UpdateUsername} />
         </Switch>
       </div>
     </Router>

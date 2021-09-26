@@ -86,7 +86,7 @@ const Home = ({history}) => {
   const buttonStyle = {
     border: 'none',
     outline:'none',
-    "background-color": '#33539f',
+    "backgroundColor": '#33539f',
   }
 
   return (
@@ -115,6 +115,7 @@ const Home = ({history}) => {
               labelFor="email"
               question="EMAIL"
               onChange={handleEmail}
+              isStatic={false}
             />
             <HomeInput
               type="password"
@@ -122,6 +123,7 @@ const Home = ({history}) => {
               labelFor="password"
               question="PASSWORD"
               onChange={handlePassword}
+              isStatic={false}
             />
           </div>
           <div className="submit-button">
