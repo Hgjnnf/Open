@@ -1,0 +1,64 @@
+.preview-container {
+  padding-top: 25%;
+  width: 50%;
+  position: relative;
+  background-color: rgba(196, 196, 196, 0.1);
+  border-color: white;
+  border-style: solid;
+  border-width: 4px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 5%;
+  cursor: pointer;
+  transition: all 0.8s ease;
+}
+
+.preview-container:hover {
+  transform: scale(1.1);
+}
+
+.to {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  opacity: 80%;
+  font-size: 35px;
+}
+
+.from {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+  opacity: 80%;
+  font-size: 35px;
+}
+
+.overview {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translate(0%, -50%);
+  color: white;
+  font-size: 35px;
+  width: 60%;
+  --max-lines: 3;
+  max-height: calc(40px * var(--max-lines));
+  overflow: hidden;
+}
+
+.overview::before {
+  position: absolute;
+  content: "...";
+  bottom: 0;
+  right: 0;
+}
+
+.sticker {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  height: 30%;
+}

@@ -1,0 +1,53 @@
+.checkbox-container {
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+.checkbox-container > input {
+    border: 1px solid white;
+    border-radius: 0px;
+    outline: none;
+    transition-duration: 0.3s;
+    background-color: transparent;
+    cursor: pointer;
+    appearance: none;
+}
+
+.checkbox-container > input:checked {
+    border: 1px solid white;
+    background-color: transparent;
+}
+
+.checkbox-container > input:checked + span::before {
+    content: '\2713';
+    color: white;
+    position: relative;
+    left: -5px;
+}
+
+.checkbox-container > input:checked + span {
+    color: white;
+    position: relative;
+    left: -15px;
+}
+
+.checkbox-container > input + span {
+    color: white;
+    position: relative;
+}
+
+.checkbox-container > input:active {
+    border: 1px solid white;;
+}
+
+.checkbox-container > span {
+    position: relative;
+    top: -3px;
+}
+
+.checker {
+    margin: 1px 5px 1px 1px;
+    height: 15px;
+    width: 15px;
+}
