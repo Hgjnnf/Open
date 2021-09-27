@@ -1,13 +1,15 @@
 .content-container {
     width: 50%;
-    height: auto;
+    min-height: 80%;
     background-color: #7FABD7;
     position: absolute;
     left: 50%;
-    top: 0%;
+    top: 10%;
     transform: translate(-50%);
     border-radius: 25px;
     border: 2px solid white;
+    animation: slide-up 0.4s ease;
+    -webkit-animation: slide-up 0.4s ease;
 }
 
 .message-content-container {
@@ -31,4 +33,17 @@
     color: white;
     text-align: right;
     position: relative;
+}
+
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 50%);
+        top: 10%;
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+        top: 10%;
+    }
 }

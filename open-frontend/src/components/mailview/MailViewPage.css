@@ -5,6 +5,10 @@
   margin-top: 3%;
 }
 
+.page-transition {
+  transition: all 0.4s ease;
+}
+
 .profile-pic {
   color: white;
   position: absolute;

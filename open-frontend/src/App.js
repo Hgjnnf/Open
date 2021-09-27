@@ -4,16 +4,11 @@ import "./App.css";
 import MailViewPage from "./components/mailview/MailViewPage.js";
 import Login from "./components/common/home/HomeLogin";
 import Signup from "./components/common/home/HomeSignup";
-import { Profile } from './components/profile/Profile';
-import UpdatePassword from './components/profile/UpdatePassword';
-import UpdateUsername from './components/profile/UpdateUsername';
+import UpdatePassword from "./components/profile/UpdatePassword";
+import UpdateUsername from "./components/profile/UpdateUsername";
 
 //routing
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PrivateRoute from "./components/routing/PrivateRoute";
 
 function App() {
@@ -21,6 +16,7 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
+          <Route exact path="/mailview" component={MailViewPage} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
           {/* to be added later
@@ -32,9 +28,16 @@ function App() {
           </Route>
           */}
           <PrivateRoute exact path="/" component={MailViewPage} />
-          <PrivateRoute exact path="/profile" component={Profile} />
-          <PrivateRoute exact path = "/changepassword" component={UpdatePassword} />
-          <PrivateRoute exact path = "/changeusername" component={UpdateUsername} />
+          <PrivateRoute
+            exact
+            path="/changepassword"
+            component={UpdatePassword}
+          />
+          <PrivateRoute
+            exact
+            path="/changeusername"
+            component={UpdateUsername}
+          />
         </Switch>
       </div>
     </Router>
