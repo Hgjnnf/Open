@@ -1,0 +1,31 @@
+.send-button {
+  text-decoration: none;
+  -webkit-border-radius: 15;
+  -moz-border-radius: 15;
+  -webkit-box-shadow: 0px 4px 4px #666666;
+  -moz-box-shadow: 0px 4px 4px #666666;
+  border-width: 3.5px;
+  border-color: #ffffff;
+  border-style: solid;
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px rgba(66, 66, 66, 0.75);
+  box-shadow: 0px 4px 4px #666666;
+  color: #ffffff;
+  font-size: 40px;
+  background: #7FABD7;
+  padding: 10px 50px 10px 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  margin: 10px;
+  display: inline-block;
+  position: absolute;
+  bottom: 7%;
+  right: 18%;
+}
+
+.send-button:hover {
+  text-decoration: none;
+  transform: scale(1.2);
+  display: inline-block;
+}

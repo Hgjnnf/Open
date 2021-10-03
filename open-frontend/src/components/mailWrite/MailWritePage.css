@@ -1,0 +1,51 @@
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+
+.return-pic {
+  color: white;
+  position: absolute;
+  left: 3%;
+  top: 3%;
+  height: 10%;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.return-pic:hover {
+  transform: scale(1.3);
+}
+
+.send-pic {
+  transition: all 0.4s ease;
+  right: 3%;
+  bottom: 3%;
+  height: 10%;
+  position: absolute;
+}
+
+.send-pic:hover {
+  transform: scale(1.3);
+}
+
+.plus-sign {
+  bottom: 3%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  height: 10%;
+  position: absolute;
+}
+
+.write-textbox {
+  display: block;
+  resize: none;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  font-size: 1.8rem;
+  padding: 30px;
+  line-height: 1.5;
+  font-family: sans-serif, FontAwesome;
+  margin: auto;
+  margin-top: 3%;
+  width: 60%;
+}
