@@ -3,7 +3,11 @@ import "./SendButton.css";
 
 const SendButton = (props) => {
   const {} = props;
-  return <a className="send-button" href="write-message">SEND</a>;
+  return (
+    <a className="send-button" href="mailwrite">
+      SEND
+    </a>
+  );
 };
 
 export default SendButton;
