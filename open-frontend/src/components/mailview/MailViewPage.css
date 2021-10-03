@@ -37,6 +37,7 @@
   position: absolute;
   left: 12%;
   top: 50%;
+  transition: 0.3s all ease;
 }
 
 .arrow-right {
@@ -50,4 +51,14 @@
   position: absolute;
   right: 12%;
   top: 50%;
+  transition: 0.3s all ease;
+}
+
+
+.arrow-right:hover {
+  transform: scale(1.3);
+}
+
+.arrow-left:hover {
+  transform: scale(1.3);
 }
