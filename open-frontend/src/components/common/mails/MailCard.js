@@ -28,4 +28,4 @@ const MailCard = (props) => {
     );
   };
   
-  export default MailCard;
+  export default MailCard;  

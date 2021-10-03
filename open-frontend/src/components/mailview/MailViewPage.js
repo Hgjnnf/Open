@@ -59,7 +59,6 @@ class MailViewPage extends React.Component {
 
   render() {
     return (
-      <div>
         <div
           style={this.state.previewPageVisibility}
           className="page-transition"
@@ -98,6 +97,12 @@ class MailViewPage extends React.Component {
           <div>
             <SendButton />
           </div>
+        <div>
+          <MailPreview
+            to={slideContent[0]}
+            from={slideContent[1]}
+            overview={slideContent[2]}
+          ></MailPreview>
         </div>
 
         {this.state.popup ? (

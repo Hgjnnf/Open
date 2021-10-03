@@ -6,6 +6,8 @@ import Login from "./components/common/home/HomeLogin";
 import Signup from "./components/common/home/HomeSignup";
 import UpdatePassword from "./components/profile/UpdatePassword";
 import UpdateUsername from "./components/profile/UpdateUsername";
+import Signup from "./components/common/home/HomeSignup";
+import Login from "./components/common/home/HomeLogin";
 
 //routing
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";

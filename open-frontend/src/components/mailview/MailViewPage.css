@@ -37,13 +37,6 @@
   position: absolute;
   left: 12%;
   top: 50%;
-  transition: 0.25s;
-}
-
-.arrow-left:hover{
-  border-top: 50px solid transparent;
-  border-bottom: 50px solid transparent;
-  border-right: 50px solid white;
 }
 
 .arrow-right {
@@ -57,11 +50,4 @@
   position: absolute;
   right: 12%;
   top: 50%;
-  transition: 0.25s;
-}
-
-.arrow-right:hover{
-  border-top: 50px solid transparent;
-  border-bottom: 50px solid transparent;
-  border-left: 50px solid white;
 }
