@@ -7,7 +7,7 @@ import SendButton from "./SendButton.js";
 import ProfilePic from "../../util/profile.png";
 
 const toArray = ["Darling", "You", "Bro"];
-const fromArray = ["Master Baller", "I like men", "Justice never dies"];
+const fromArray = ["Master Baller", "Eminem", "Justice never dies"];
 const mainArray = [
   "This is a really really lon message and I just spelled the word long wrong bla bla bla bla bla bla bla bla bla",
   "This is a short message",
@@ -41,19 +41,19 @@ class MailViewPage extends React.Component {
   }
 
   slideScroll(scroll) {
-    this.setState({ slideIndex: this.state.slideIndex + scroll });
-    if (this.state.slideIndex < 0) {
-      this.setState({ slideIndex: toArray.length - 1 });
+    var newIdx = this.state.slideIndex + scroll;
+    if (newIdx < 0) {
+      newIdx = toArray.length - 1;
     }
-    if (this.state.slideIndex >= toArray.length) {
-      this.setState({ slideIndex: 0 });
+    if (newIdx >= toArray.length) {
+      newIdx = 0;
     }
+
+    console.log(this.state.slideIndex, scroll, newIdx);
+    this.setState({ slideIndex: newIdx });
+
     this.setState({
-      slideContent: [
-        toArray[this.state.slideIndex],
-        fromArray[this.state.slideIndex],
-        mainArray[this.state.slideIndex],
-      ],
+      slideContent: [toArray[newIdx], fromArray[newIdx], mainArray[newIdx]],
     });
   }
 
