@@ -55,7 +55,7 @@ class UpdateUsername extends React.Component {
                 <a href="/profile" id="return-link"><img src={returnArrow} alt="Return Arrow" id="return-arrow"/></a>
                 <form className="Username-Main" onSubmit={this.handleSubmit}>
                     <h2 id="username-title">Update Username</h2>
-                    <HomeInput question="USERNAME" inputType="text" value={username} isStatic={false} onchange={this.handleChange} />
+                    <HomeInput question="USERNAME" type="text" value={username} isStatic={false} onchange={this.handleChange} />
                     <button type="submit"><HomeButton buttonText="Update Username" /></button>
                 </form>
             </div>
