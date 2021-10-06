@@ -7,9 +7,20 @@
     background-color: #33539f;
     align-content:flex-end;
     flex: auto;
+    background-image: url("../../../util/homeBackground.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90% auto;
+}
+
+.backrgound-pic {
+    position: absolute;
+    height: 100%;
+    z-index: -1;
 }
 
 .form-container {
+    z-index: 1;
     width: 43%;
     margin-left: auto;
     margin-right: auto;

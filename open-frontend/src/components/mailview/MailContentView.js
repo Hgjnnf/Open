@@ -8,9 +8,10 @@ class MailContentView extends React.Component {
     return (
       <div className="content-container">
         <div className="message-content-container">
-          <div className="message-content-text">{this.props.to}</div>
+          <div className="message-content-to">{this.props.to}</div>
           <span className="message-content-text">{this.props.content}</span>
           <div className="message-content-from">{this.props.from}</div>
+          <div className="message-content-extra">Jan 10, Windy</div>
         </div>
       </div>
     );

@@ -20,7 +20,7 @@ const MailWritePage = (props) => {
   return (
     <div>
       <div className="container">
-        <p className="view-header">New Letter</p>
+        <p className="view-header">Worries Consultation</p>
         <a href="mailview">
           <img alt="return" src={ReturnPic} className="return-pic" />
         </a>
@@ -30,16 +30,30 @@ const MailWritePage = (props) => {
           onChange={(e) => {
             setCurrentValue(e.target.value);
           }}
-          placeholder="Dear Stranger... &#xf040;"
+          placeholder="Dear Stranger... &#xf040; &#10;Please be specific and clear about the causes of your worries to get better responses. Key names, locations, and information can be replaced with pseudonyms"
           className="write-textbox"
         />
+        <div className="bottom-space"></div>
         <div>
-          <img alt="plus-sign" src={PlusSign} className="plus-sign" />
+          {/** <img alt="plus-sign" src={PlusSign} className="plus-sign" /> */}
           <a href="mailview">
-            <img alt="send" src={PaperPlane} className="send-pic" />
+            {/** <img alt="send" src={PaperPlane} className="send-pic" /> */}
+            <AirPlane className="send-pic" />
           </a>
         </div>
       </div>
+    </div>
+  );
+};
+
+const AirPlane = (props) => {
+  return (
+    <div class="plane">
+      <div class="wingRight"></div>
+      <div class="wingLeft"></div>
+      <div class="bottom"></div>
+      <div class="top"></div>
+      <div class="middle"></div>
     </div>
   );
 };
