@@ -78,7 +78,7 @@ const Home = ({history}) => {
               isStatic={false}
             />
             <HomeInput
-              type="text"
+              type="email"
               name="email"
               labelFor="email"
               question="EMAIL"
@@ -105,7 +105,7 @@ const Home = ({history}) => {
             />
           </div>
           <HomeCheckbox></HomeCheckbox>
-          <a href="forgot-password" className="forgot-password">
+          <a href="forgotpassword" className="forgot-password">
             Forgot Password
           </a>
           <div className="submit-button">

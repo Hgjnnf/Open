@@ -109,7 +109,7 @@ const Home = ({history}) => {
         <form onSubmit={handleSubmit}>
           <div className="input-container">
             <HomeInput
-              type="text"
+              type="email"
               name="email"
               labelFor="email"
               question="EMAIL"
