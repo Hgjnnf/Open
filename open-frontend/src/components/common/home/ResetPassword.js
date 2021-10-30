@@ -23,20 +23,18 @@ const ResetPassword = ({ history, match }) => {
             alert("Passwords do not match!");
         }
 
-        try {
-            const { data } = await axios.post(
-                `/api/auth/resetpassword/${match.params.resetToken}`,
-                { password },
-                config
-            );
+        await axios.put(`/api/auth/resetpassword/${match.params.resetToken}`, {password}, config).then(
+            res => {
+                alert(res.data.data);
+            }
+        ).catch(
+            err => {
+                setPassword("");
+                setConfirmPassword("");
+                alert(err.message);
+            }
+        )
 
-            alert(data.data);
-
-        } catch (err) {
-            setPassword("");
-            setConfirmPassword("");
-            alert(err.message);
-        }
     }
 
     return (
@@ -44,8 +42,8 @@ const ResetPassword = ({ history, match }) => {
             <a href="/" id="return-link"><img src={returnArrow} alt="Return Arrow" id="return-arrow"/></a>
             <form className="Reset-Main" onSubmit={resetPasswordHandler}>
                 <h2 id="reset-title">Reset Password</h2>
-                <HomeInput question="PASSWORD" type="password" value={password} isStatic={false} onchange={(e) => setPassword(e.target.value)} />
-                <HomeInput question="CONFIRM PASSWORD" type="password" value={confirmpassword} isStatic={false} onchange={(e) => setConfirmPassword(e.target.value)} />
+                <HomeInput question="PASSWORD" type="password" name="password" labelFor="password" isStatic={false} onChange={(e) => setPassword(e.target.value)} />
+                <HomeInput question="CONFIRM PASSWORD" type="password" name="confirmpassword" labelFor="confirmpassword"isStatic={false} onChange={(e) => setConfirmPassword(e.target.value)} />
                 <button type="submit"><HomeButton buttonText="Reset Password" /></button>
             </form>
         </div>

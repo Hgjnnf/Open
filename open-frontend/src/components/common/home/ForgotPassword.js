@@ -16,27 +16,31 @@ const ForgotPassword = () => {
             }
         };
 
-        try {
-            const { data } = await axios.post(
-                "/api/auth/forgotpassword",
-                { email },
-                config
-            );
-
-            alert(data.data);
-
-        } catch (err) {
-            setEmail("");
-            alert(err.message);
-        }
+        await axios.post('/api/auth/forgotpassword', {email}, config).then(
+            res => {
+                alert(res.data.data);
+            }
+        ).catch(
+            err => {
+                setEmail("");
+                alert(err.message);
+            }
+        )
     }
 
     return (
         <div className="ForgotPassword">
             <a href="/" id="return-link"><img src={returnArrow} alt="Return Arrow" id="return-arrow"/></a>
             <form className="Forgot-Main" onSubmit={forgotPasswordHandler}>
-                <h2 id="forgot-title">Update Username</h2>
-                <HomeInput question="EMAIL" type="email" value={email} isStatic={false} onchange={(e) => setEmail(e.target.value)} />
+                <h2 id="forgot-title">Forgot Password</h2>
+                <HomeInput 
+                    question="EMAIL" 
+                    type="email" 
+                    name="email"
+                    labelFor="email"
+                    isStatic={false} 
+                    onChange={(e) => setEmail(e.target.value)} 
+                />
                 <button type="submit"><HomeButton buttonText="Submit" /></button>
             </form>
         </div>
